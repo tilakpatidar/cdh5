@@ -1,0 +1,85 @@
+version: '2'
+
+services:
+  dns:
+    build: dns
+    hostname: dns
+    ports:
+      - "53:53"
+      - "53:53/udp"
+    networks:
+      - local
+
+  zookeeper:
+    build: zookeeper
+    hostname: zookeeper
+    networks:
+      - local
+
+  hdfsnamenode:
+    build: hdfs-namenode
+    volumes:
+      - "./cluster-conf:/etc/hadoop/cluster-conf:ro"
+    networks:
+      - local
+
+  yarnresourcemanager:
+    build: yarn-resource-manager
+    volumes:
+      - "./cluster-conf:/etc/hadoop/cluster-conf:ro"
+    networks:
+      - local
+
+  mapreducehistory:
+    build: mapreduce-history
+    volumes:
+      - "./cluster-conf:/etc/hadoop/cluster-conf:ro"
+    networks:
+      - local
+
+  clusternode:
+    build: cluster-node
+    domainname: cdh5-local
+    volumes:
+      - "./cluster-conf:/etc/hadoop/cluster-conf:ro"
+    networks:
+      - local
+
+  hiveserver:
+    build: hive-server
+    volumes:
+      - "./cluster-conf:/etc/hadoop/cluster-conf:ro"
+    networks:
+      - local
+
+  hivemetastore:
+     environment:
+           POSTGRES_VERSION: 9.5
+           PGPASSWORD: elephants
+     build: hive-metastore
+     volumes:
+       - "./cluster-conf:/etc/hadoop/cluster-conf:ro"
+     networks:
+       - local
+
+  postgres:
+     build: postgres
+     environment:
+           POSTGRES_USER: root
+           POSTGRES_PASSWORD: elephants
+           POSTGRES_DB: root
+     networks:
+       - local
+
+  hue:
+     build: hue
+     volumes:
+       - "./cluster-conf:/etc/hadoop/cluster-conf:ro"
+       - "./conf.hue:/etc/hue/conf:ro"
+     networks:
+       - local
+
+networks:
+  local:
+    external:
+      name: cdh5-local

@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  hdfs:
+    build: base
+    volumes:
+      - "./cluster-conf:/etc/hadoop/cluster-conf:ro"
+    user: hdfs
+    entrypoint:
+      - hdfs
+    networks:
+      - local
+
+networks:
+  local:
+    external:
+      name: cdh5-local
