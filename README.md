@@ -5,7 +5,7 @@ Services included:
 - Hive Metastore
 - Hive Server
 - MySQL(Metastore DB for Hive)
-- Postgressdfsd
+- Postgres
 - Hue
 - Zookeeper
 - Yarn resource manager
