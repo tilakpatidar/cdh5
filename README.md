@@ -18,3 +18,12 @@ The following script creates docker machine, docker network and setups required 
 ```
 ./build.sh $CLUSTER_NODES
 ```
+The following dashboard links are useful
+
+[http://hdfsnamenode.cdh5-local:50070](http://hdfsnamenode.cdh5-local:50070)
+
+[http://hiveserver.cdh5-local:10002](http://hiveserver.cdh5-local:10002)
+
+[http://yarnresourcemanager.cdh5-local:8088](http://yarnresourcemanager.cdh5-local:8088)
+
+[http://mapreducehistory.cdh5-local:19888](http://mapreducehistory.cdh5-local:19888)
