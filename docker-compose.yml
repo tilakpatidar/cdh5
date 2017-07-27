@@ -74,8 +74,8 @@ services:
   hue:
      build: hue
      volumes:
-       - "./cluster-conf:/etc/hadoop/cluster-conf:ro"
-       - "./conf.hue:/etc/hue/conf:ro"
+       - "./conf/cluster-conf:/etc/hadoop/cluster-conf:ro"
+       - "./conf/conf.hue:/etc/hue/conf:ro"
      networks:
        - local
 
