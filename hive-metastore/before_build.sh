@@ -12,5 +12,6 @@ else
     (cd $LOCALREPO && git pull $REPOSRC)
 fi
 
+mkdir -p hive_migrations
 cp lake_garda/migrations/src/main/db/migrations/*.sql hive_migrations/
 rm -rf hive_migrations/.migration_info

@@ -23,7 +23,7 @@ done
 until nc -z -w5 yarnresourcemanager.cdh5-local 8032
 do
     echo "Waiting for YARN ResourceManager to become available"
-
+    sleep 10
 
 done
 
