@@ -11,8 +11,16 @@ function build_service_images(){
         echo "[INFO] Built service images for cluster"
     ) || ( echo "[ERROR] build service images failed" && exit 1)
 }
+function before_build_scripts(){
+    (
+    for D in `find ./ -type d`
+    do
+        (cd $D && test -x before_build.sh && (sh before_build.sh))
+    done )
+}
 
 function build_images(){
+    before_build_scripts
     build_base_image
     build_service_images
 }
