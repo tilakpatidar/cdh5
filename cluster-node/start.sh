@@ -14,8 +14,10 @@ service hadoop-hdfs-datanode start
 until hdfs dfsadmin -safemode wait
 do
     echo "Waiting for HDFS safemode to turn off"
-    sleep 1
+    # force safemode leave
+    hdfs dfsadmin -safemode leave
 done
+
 
 # Wait for resource manager to come alive on its standard port
 until nc -z -w5 yarnresourcemanager.cdh5-local 8032

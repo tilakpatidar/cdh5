@@ -7,9 +7,10 @@ set -x
 until hdfs dfsadmin -safemode wait
 do
     echo "Waiting for HDFS safemode to turn off"
-
-
+    # force safemode leave
+    hdfs dfsadmin -safemode leave
 done
+
 
 # Create yarn.app.mapreduce.am.staging-dir. Refer to mapred-site.xml.
 sudo -u hdfs hdfs dfs -mkdir -p /user/history

@@ -8,9 +8,10 @@ set -x
 until hdfs dfsadmin -safemode wait
 do
     echo "Waiting for HDFS safemode to turn off"
-    
-    
+    # force safemode leave
+    hdfs dfsadmin -safemode leave
 done
+
 
 service hive-webhcat-server start
 service hive-server2 start

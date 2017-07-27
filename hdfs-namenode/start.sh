@@ -10,9 +10,10 @@ service hadoop-hdfs-namenode start
 until hdfs dfsadmin -safemode wait
 do
     echo "Waiting for HDFS safemode to turn off"
-
-
+    # force safemode leave
+    hdfs dfsadmin -safemode leave
 done
+
 
 # Create the hadoop.tmp.dir. Refer to core-site.xml
 sudo -u hdfs hdfs dfs -mkdir /tmp
