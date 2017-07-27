@@ -8,9 +8,10 @@ set -x
 until hdfs dfsadmin -safemode wait
 do
     echo "Waiting for HDFS safemode to turn off"
-    
-
+    # force safemode leave
+    hdfs dfsadmin -safemode leave
 done
+
 
 sudo -u hdfs hdfs dfs -mkdir /user/hue
 sudo -u hdfs hdfs dfs -chmod -R 1777 /user/hue
