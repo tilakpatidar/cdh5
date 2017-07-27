@@ -97,6 +97,7 @@ else
      create_docker_machine
 fi
      start_docker_machine
+     clean_up
      remove_network_config
      create_network_config
      build_images
