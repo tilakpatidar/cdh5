@@ -74,6 +74,8 @@ services:
            POSTGRES_USER: root
            POSTGRES_PASSWORD: elephants
            POSTGRES_DB: root
+     ports:
+       - "5000:5432"
      networks:
        - local
 
