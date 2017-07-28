@@ -77,13 +77,25 @@ services:
      networks:
        - local
 
-  hue:
-     build: hue
+  # hue:
+  #    build: hue
+  #    volumes:
+  #      - "./conf/cluster-conf:/etc/hadoop/cluster-conf:ro"
+  #      - "./conf/conf.hue:/etc/hue/conf:ro"
+  #    networks:
+  #      - local
+       
+       
+  gobblin:
+     build: gobblin
      volumes:
-       - "./cluster-conf:/etc/hadoop/cluster-conf:ro"
-       - "./conf.hue:/etc/hue/conf:ro"
+       - "./conf/gobblin:/etc/gobblin/job_conf:ro"
+     hostname: gobblin
      networks:
        - local
+     environment:
+           GOBBLIN_JOB_CONFIG_DIR: /etc/gobblin/job_conf
+           GOBBLIN_WORK_DIR: /data/gobblin/work_dir
 
 networks:
   local:
