@@ -18,6 +18,7 @@ services:
 
   hdfsnamenode:
     build: hdfs-namenode
+    hostname: hdfsnamenode
     volumes:
       - "./conf/cluster-conf:/etc/hadoop/cluster-conf:ro"
     networks:
@@ -27,11 +28,13 @@ services:
     build: yarn-resource-manager
     volumes:
       - "./conf/cluster-conf:/etc/hadoop/cluster-conf:ro"
+    hostname: yarnresourcemanager
     networks:
       - local
 
   mapreducehistory:
     build: mapreduce-history
+    hostname: mapreducehistory
     volumes:
       - "./conf/cluster-conf:/etc/hadoop/cluster-conf:ro"
     networks:
@@ -49,6 +52,7 @@ services:
     build: hive-server
     volumes:
       - "./conf/cluster-conf:/etc/hadoop/cluster-conf:ro"
+    hostname: hiveserver
     networks:
       - local
 
@@ -56,6 +60,7 @@ services:
      environment:
            POSTGRES_VERSION: 9.5
            PGPASSWORD: elephants
+     hostname: hivemetastore
      build: hive-metastore
      volumes:
        - "./conf/cluster-conf:/etc/hadoop/cluster-conf:ro"
@@ -64,6 +69,7 @@ services:
 
   postgres:
      build: postgres
+     hostname: postgres
      environment:
            POSTGRES_USER: root
            POSTGRES_PASSWORD: elephants
