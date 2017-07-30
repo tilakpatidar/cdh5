@@ -58,4 +58,4 @@ apt-get autoremove -y
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 rm -rf /usr/share/doc/* /usr/share/man/* /usr/share/info/*
-find /var | grep '\.log$' | xargs rm -v
+find /var | grep '\.log$' | xargs rm -fv
