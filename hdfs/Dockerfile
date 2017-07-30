@@ -1,6 +1,6 @@
 # Adds hdfs client libraries
 
-FROM local/ubuntu-cdh5-base
+FROM tilakpatidar/ubuntu-cdh5-base
 MAINTAINER Tilak Patidar tilakpatidar@gmail.com
 
 RUN apt-get update && apt-get install -y hadoop-client
