@@ -13,5 +13,5 @@ else
 fi
 
 mkdir -p hive_migrations
-cp lake_garda/migrations/src/main/db/migrations/*.sql hive_migrations/
-rm -rf hive_migrations/.migration_info
+cp lake_garda/migrations/src/main/db/migrations/*.sql ../hive_migrations/
+rm -rf ../hive_migrations/.migration_info
