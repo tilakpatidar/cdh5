@@ -64,6 +64,7 @@ services:
      build: hive-metastore
      volumes:
        - "./conf/cluster-conf:/etc/hadoop/cluster-conf:ro"
+       - "./hive_migrations:/usr/lib/hive/hive_migrations:rw"
      networks:
        - local
 
