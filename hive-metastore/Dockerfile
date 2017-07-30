@@ -27,9 +27,6 @@ RUN apt-get update && \
   bash /tmp/config && \
   rm -f /tmp/config
 
-# copy migrations
-ADD ./hive_migrations /usr/lib/hive/hive_migrations
-
 # Define mountable directories.
 VOLUME ["/etc/mysql", "/var/lib/mysql"]
 
