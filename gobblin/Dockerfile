@@ -1,4 +1,4 @@
-FROM local/ubuntu-cdh5-base
+FROM tilakpatidar/ubuntu-cdh5-base
 MAINTAINER Tilak Patidar tilakpatidar@gmail.com
 
 WORKDIR /data
