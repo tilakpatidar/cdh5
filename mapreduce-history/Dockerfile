@@ -1,6 +1,6 @@
 # Runs a MapReduce History Server and a YARN proxy server
 
-FROM local/ubuntu-cdh5-base
+FROM tilakpatidar/ubuntu-cdh5-base
 MAINTAINER Tilak Patidar tilakpatidar@gmail.com
 
 # Cloudera says install both of these one "one host". We're not going to use
