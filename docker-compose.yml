@@ -87,6 +87,19 @@ services:
        - "./conf/conf.hue:/etc/hue/conf:ro"
      networks:
        - local
+  
+  kafka:
+     build: kafka
+     hostname: kafka
+     ports:
+           - "9092"
+     volumes:
+       - "./conf/cluster-conf:/etc/hadoop/cluster-conf:ro"
+       - "./kafka/conf:/etc/kafka/conf:ro"
+       - "./conf/conf.hue:/etc/hue/conf:ro"
+     networks:
+       - local
+
 
 networks:
   local:
